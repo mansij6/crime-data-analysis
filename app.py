@@ -5,7 +5,11 @@ import numpy as np
 # --------------------------
 # Load Data
 # --------------------------
-data = pd.read_csv("Crime_dats_2025.csv")
+import os
+
+file_path = os.path.join(os.path.dirname(__file__), "Crime_dats_2025.csv")
+data = pd.read_csv(file_path)
+
 
 # --------------------------
 # Sidebar - Selection
@@ -13,6 +17,7 @@ data = pd.read_csv("Crime_dats_2025.csv")
 st.sidebar.header("Crime Data Analysis")
 state_selected = st.sidebar.selectbox("Select State/UT", sorted(data["State/UT"].unique()))
 year_selected = st.sidebar.selectbox("Select Year", ['2020','2021','2022','2023','2024','2025'])
+
 
 # --------------------------
 # State-wise Table
